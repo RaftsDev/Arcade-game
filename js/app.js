@@ -31,9 +31,21 @@ Enemy.prototype.render = function() {
 
 var Player = function(){
   this.x = 200;
-  this.y = 200;
+  this.y = 325;
   this.speed = 100;
   this.sprite = 'images/char-princess-girl.png';
+  this.handleInput = function(key){
+    switch(key){
+      case "up":this.y-=83;
+           break;
+      case "down":this.y+=83;
+           break;
+      case "left":this.x-=75;
+           break;
+      case "right":this.x+=75;
+           break;
+    }
+  }
 };
 
 Player.prototype.update = function(dt){
@@ -63,9 +75,9 @@ document.addEventListener('keyup', function(e) {
 });
 
 
-var enemy1 = new Enemy(0,0,100);
-var enemy2 = new Enemy(0,50,100);
-var enemy3 = new Enemy(0,100,100);
+var enemy1 = new Enemy(0,75,100);
+var enemy2 = new Enemy(50,150,100);
+var enemy3 = new Enemy(100,230,100);
 var allEnemies = [enemy1,enemy2,enemy3];
 
 var player = new Player();
