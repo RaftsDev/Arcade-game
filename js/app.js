@@ -17,6 +17,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -31,10 +32,33 @@ Enemy.prototype.render = function() {
 
 var Player = function(){
   this.x = 200;
-  this.y = 200;
+  this.y = 325;
   this.speed = 100;
   this.sprite = 'images/char-princess-girl.png';
-  
+  this.handleInput = function(key){
+    switch(key){
+      case "up":if (this.y<20){
+                   this.y = 85;
+                }
+                else {
+                  this.y-=83;
+                }
+           break;
+      case "down":if (this.y>375){
+                   this.y = 375;
+                }
+                else {
+                  this.y+=83;
+                };
+           break;
+      case "left":this.x-=75;
+           break;
+      case "right":this.x+=75;
+           break;
+    }
+
+  }
+};
 
 Player.prototype.update = function(dt){
 
@@ -47,8 +71,6 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
 
 
 // This listens for key presses and sends the keys to your
@@ -65,11 +87,9 @@ document.addEventListener('keyup', function(e) {
 });
 
 
-
-
-var enemy1 = new Enemy(0,0,100);
-var enemy2 = new Enemy(0,50,100);
-var enemy3 = new Enemy(0,100,100);
+var enemy1 = new Enemy(0,75,100);
+var enemy2 = new Enemy(50,150,100);
+var enemy3 = new Enemy(100,230,100);
 var allEnemies = [enemy1,enemy2,enemy3];
 
 var player = new Player();
