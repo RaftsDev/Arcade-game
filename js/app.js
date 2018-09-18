@@ -34,7 +34,7 @@ var Player = function(){
   this.y = 200;
   this.speed = 100;
   this.sprite = 'images/char-princess-girl.png';
-};
+  
 
 Player.prototype.update = function(dt){
 
@@ -63,6 +63,8 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
 
 
 var enemy1 = new Enemy(0,0,100);
