@@ -30,15 +30,15 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function(){
-  this.x = 100;
-  this.y = 100;
+  this.x = 200;
+  this.y = 200;
   this.speed = 100;
   this.sprite = 'images/char-horn-girl.png';
-}
+};
 
 Player.prototype.update = function(dt){
 
-}
+};
 
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
