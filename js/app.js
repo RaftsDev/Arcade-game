@@ -17,6 +17,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -36,15 +37,26 @@ var Player = function(){
   this.sprite = 'images/char-princess-girl.png';
   this.handleInput = function(key){
     switch(key){
-      case "up":this.y-=83;
+      case "up":if (this.y<20){
+                   this.y = 85;
+                }
+                else {
+                  this.y-=83;
+                }
            break;
-      case "down":this.y+=83;
+      case "down":if (this.y>375){
+                   this.y = 375;
+                }
+                else {
+                  this.y+=83;
+                };
            break;
       case "left":this.x-=75;
            break;
       case "right":this.x+=75;
            break;
     }
+
   }
 };
 
