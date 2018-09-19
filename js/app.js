@@ -11,6 +11,11 @@ var Enemy = function(x,y,speed) {
     this.speed = speed;
 };
 
+var grassBorder = 408;
+var waterBorder = 83;
+var leftBorder = 0;
+var rightBorder = 606;
+
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -37,23 +42,21 @@ var Player = function(){
   this.sprite = 'images/char-princess-girl.png';
   this.handleInput = function(key){
     switch(key){
-      case "up":if (this.y<20){
-                   this.y = 85;
-                }
-                else {
-                  this.y-=83;
+      case "up":if (this.y>waterBorder){
+                   this.y-=83;
                 }
            break;
-      case "down":if (this.y>375){
-                   this.y = 375;
+      case "down":if (this.y<grassBorder){
+                   this.y+=83;
                 }
-                else {
-                  this.y+=83;
-                };
            break;
-      case "left":this.x-=75;
-           break;
-      case "right":this.x+=75;
+      case "left":if (this.x>leftBorder){
+                   this.x-=75;
+                }
+            break;
+      case "right":if (this.x<rightBorder-200){
+                    this.x+=75;
+                }
            break;
     }
 
