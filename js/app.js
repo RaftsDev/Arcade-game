@@ -9,6 +9,8 @@ var Enemy = function(x,y,speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
+    this.width = 101;
+    this.height = 83;
 };
 
 var grassBorder = 408;
@@ -43,6 +45,8 @@ var Player = function(){
   this.x = 200;
   this.y = 325;
   this.speed = 100;
+  this.width = 101;
+  this.height = 83;
   this.sprite = 'images/char-princess-girl.png';
   this.handleInput = function(key){
     switch(key){
@@ -79,6 +83,12 @@ Player.prototype.render = function() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+var enemy1 = new Enemy(0,75,100);
+var enemy2 = new Enemy(50,150,100);
+var enemy3 = new Enemy(100,230,100);
+var allEnemies = [enemy1,enemy2,enemy3];
+
+var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -92,11 +102,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
-var enemy1 = new Enemy(0,75,100);
-var enemy2 = new Enemy(50,150,100);
-var enemy3 = new Enemy(100,230,100);
-var allEnemies = [enemy1,enemy2,enemy3];
-
-var player = new Player();

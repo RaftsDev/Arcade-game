@@ -46,6 +46,7 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
+        checkCollisions();
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -95,6 +96,26 @@ var Engine = (function(global) {
         });
         player.update();
     }
+
+    function checkCollisions() {
+      allEnemies.forEach(function(enemy){
+        let playerCenterX = player.x+player.width/2;
+        let playerCenterY = player.y+player.width/2;
+        let enemyCenterX = enemy.x+enemy.width/2;
+        let enemyCenterY = enemy.y+enemy.width/2;
+        if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
+          enemy.update(dt);
+          enemy.render();
+          // player.update();
+          player.render();
+          alert("You lose!");
+          reset();
+        }
+      });
+      }
+
+
+
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
