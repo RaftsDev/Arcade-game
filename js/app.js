@@ -77,14 +77,15 @@ var Player = function(){
 
 Player.prototype.update = function(dt){
   if (this.y<20) {
-    cancelAnimationFrame(myReq);
+    cancelAnimationFrame(window.myReq);
     this.render();
-    alert("You won!!!");
+
     setTimeout(function(){
       enemy1.x = 0; enemy1.y = 75;
       enemy2.x = 50; enemy2.y = 150;
       enemy3.x = 100; enemy3.y = 230;
       player.x = 200; player.y = 325;
+      alert("You won!!!");
       engine.main()
     },500);
 
