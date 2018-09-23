@@ -53,7 +53,7 @@ var Engine = (function(global) {
           // alert("condition of checkCollisions()");
 
           cancelAnimationFrame(myReq);
-          
+
           alert("You lose!!!");
 
           setTimeout(function() {
