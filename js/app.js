@@ -84,7 +84,7 @@ Player.prototype.render = function() {
 // Place the player object in a variable called player
 
 var enemy1 = new Enemy(0,75,100);
-var enemy2 = new Enemy(50,150,100);
+var enemy2 = new Enemy(50,150,150);
 var enemy3 = new Enemy(100,230,100);
 var allEnemies = [enemy1,enemy2,enemy3];
 
