@@ -53,10 +53,13 @@ var Engine = (function(global) {
           // alert("condition of checkCollisions()");
 
           cancelAnimationFrame(myReq);
+          
 
-          alert("You lose!!!");
+
+
 
           setTimeout(function() {
+            alert("You lose!!!");
 
             enemy1.x = 0; enemy1.y = 75;
             enemy2.x = 50; enemy2.y = 150;
