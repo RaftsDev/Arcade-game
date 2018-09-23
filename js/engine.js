@@ -22,7 +22,10 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
-        lastTime;
+        lastTime,
+        myReq,
+        cancelAnimationFrame = window.cancelAnimationFrame,
+        collision;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -45,8 +48,24 @@ var Engine = (function(global) {
          * our update function since it may be used for smooth animation.
          */
         update(dt);
+        if (checkCollisions()){
+          collision = false;
+          // alert("condition of checkCollisions()");
+
+          cancelAnimationFrame(myReq);
+          
+          alert("You lose!!!");
+
+          setTimeout(function() {
+
+            enemy1.x = 0; enemy1.y = 75;
+            enemy2.x = 50; enemy2.y = 150;
+            enemy3.x = 100; enemy3.y = 230;
+            player.x = 200; player.y = 325;
+          }, 700);
+        };
         render();
-        checkCollisions();
+
 
         /* Set our lastTime variable which is used to determine the time delta
          * for the next time this function is called.
@@ -56,7 +75,7 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
-        win.requestAnimationFrame(main);
+        myReq=win.requestAnimationFrame(main);
     }
 
     /* This function does some initial setup that should only occur once,
@@ -104,14 +123,18 @@ var Engine = (function(global) {
         let enemyCenterX = enemy.x+enemy.width/2;
         let enemyCenterY = enemy.y+enemy.width/2;
         if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
-          enemy.update(dt);
-          enemy.render();
+          // enemy.update(dt);
+          // enemy.render();
           // player.update();
-          player.render();
-          alert("You lose!");
-          reset();
+          // player.render();
+          // setTimeout(function(){ alert("You lose!");
+          //                        init(); }, 1000);
+          // alert("condition distance close");
+          collision = true ;
+          return;
         }
       });
+       return collision;
       }
 
 
