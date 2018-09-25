@@ -24,8 +24,8 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
         myReq,
-        cancelAnimationFrame = window.cancelAnimationFrame,
-        collision;
+        // cancelAnimationFrame = window.cancelAnimationFrame,
+        collision=false;
 
     canvas.width = 505;
     canvas.height = 606;
@@ -48,26 +48,30 @@ var Engine = (function(global) {
          * our update function since it may be used for smooth animation.
          */
         update(dt);
-        if (checkCollisions()){
-          collision = false;
+
+
+        render();
+        checkCollisions()
+        if (collision){
           // alert("condition of checkCollisions()");
-
-          cancelAnimationFrame(myReq);
+          // collision = false;
+          trackLog("condition of checkCollision inside reqAnimation");
           
-
-
-
-
+          cancelAnimationFrame(myReq);
+          render();
           setTimeout(function() {
-            alert("You lose!!!");
 
+            trackLog("Entered setTimeout function");
             enemy1.x = 0; enemy1.y = 75;
             enemy2.x = 50; enemy2.y = 150;
             enemy3.x = 100; enemy3.y = 230;
             player.x = 200; player.y = 325;
+            alert("You lose!!!");
+
+
           }, 700);
+
         };
-        render();
 
 
         /* Set our lastTime variable which is used to determine the time delta
@@ -120,25 +124,21 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
-      allEnemies.forEach(function(enemy){
-        let playerCenterX = player.x+player.width/2;
-        let playerCenterY = player.y+player.width/2;
-        let enemyCenterX = enemy.x+enemy.width/2;
-        let enemyCenterY = enemy.y+enemy.width/2;
-        if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
-          // enemy.update(dt);
-          // enemy.render();
-          // player.update();
-          // player.render();
-          // setTimeout(function(){ alert("You lose!");
-          //                        init(); }, 1000);
-          // alert("condition distance close");
-          collision = true ;
-          return;
-        }
-      });
-       return collision;
-      }
+      // trackLog("Entered to checkCollision");
+      if (!collision){
+        allEnemies.forEach(function(enemy) {
+          trackLog("Entered to forEach(function(enemy)");
+          let playerCenterX = player.x+player.width/2;
+          let playerCenterY = player.y+player.width/2;
+          let enemyCenterX = enemy.x+enemy.width/2;
+          let enemyCenterY = enemy.y+enemy.width/2;
+          if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
+            collision = true ;
+            trackLog("collision = true");
+          };
+        });
+      };
+    };
 
 
 
@@ -230,3 +230,10 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+function trackLog(s){
+  let now1 = new Date();
+  let now2 = now1.getHours()+":"+now1.getMinutes()+":"+now1.getSeconds();
+
+  console.log(now2+": "+s);
+};
