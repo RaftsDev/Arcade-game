@@ -52,26 +52,37 @@ var Engine = (function(global) {
 
         render();
         checkCollisions()
+        // if (collision){
+        //   // alert("condition of checkCollisions()");
+        //   // collision = false;
+        //   trackLog("condition of checkCollision inside reqAnimation");
+        //
+        //   cancelAnimationFrame(myReq);
+        //   render();
+        //   setTimeout(function() {
+        //
+        //     trackLog("Entered setTimeout function");
+        //     enemy1.x = 0; enemy1.y = 75;
+        //     enemy2.x = 50; enemy2.y = 150;
+        //     enemy3.x = 100; enemy3.y = 230;
+        //     player.x = 200; player.y = 325;
+        //     alert("You lose!!!");
+        //
+        //
+        //   }, 700);
+        //
+        // };
         if (collision){
-          // alert("condition of checkCollisions()");
-          // collision = false;
-          trackLog("condition of checkCollision inside reqAnimation");
-          
-          cancelAnimationFrame(myReq);
           render();
-          setTimeout(function() {
-
-            trackLog("Entered setTimeout function");
-            enemy1.x = 0; enemy1.y = 75;
-            enemy2.x = 50; enemy2.y = 150;
-            enemy3.x = 100; enemy3.y = 230;
-            player.x = 200; player.y = 325;
+          collision="false";
+          setTimeout(function(){
+            trackLog("Entered to setTimeout");
             alert("You lose!!!");
-
-
-          }, 700);
-
-        };
+            // init();
+            Engine(win);
+          },700);
+          return;
+        }
 
 
         /* Set our lastTime variable which is used to determine the time delta
@@ -135,6 +146,9 @@ var Engine = (function(global) {
           if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
             collision = true ;
             trackLog("collision = true");
+            cancelAnimationFrame(myReq);
+            trackLog("canceled Animation");
+
           };
         });
       };
@@ -209,6 +223,10 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        enemy1.x = 0; enemy1.y = 75;
+        enemy2.x = 50; enemy2.y = 150;
+        enemy3.x = 100; enemy3.y = 230;
+        player.x = 200; player.y = 325;
     }
 
     /* Go ahead and load all of the images we know we're going to need to
