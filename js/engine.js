@@ -74,12 +74,12 @@ var Engine = (function(global) {
         // };
         if (collision){
           render();
-          collision="false";
+          collision=false;
           setTimeout(function(){
             trackLog("Entered to setTimeout");
             alert("You lose!!!");
             // init();
-            Engine(win);
+            init();
           },700);
           return;
         }
