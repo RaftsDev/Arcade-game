@@ -52,26 +52,7 @@ var Engine = (function(global) {
 
         render();
         checkCollisions()
-        // if (collision){
-        //   // alert("condition of checkCollisions()");
-        //   // collision = false;
-        //   trackLog("condition of checkCollision inside reqAnimation");
-        //
-        //   cancelAnimationFrame(myReq);
-        //   render();
-        //   setTimeout(function() {
-        //
-        //     trackLog("Entered setTimeout function");
-        //     enemy1.x = 0; enemy1.y = 75;
-        //     enemy2.x = 50; enemy2.y = 150;
-        //     enemy3.x = 100; enemy3.y = 230;
-        //     player.x = 200; player.y = 325;
-        //     alert("You lose!!!");
-        //
-        //
-        //   }, 700);
-        //
-        // };
+      
         if (collision){
           render();
           collision=false;
@@ -143,7 +124,7 @@ var Engine = (function(global) {
           let playerCenterY = player.y+player.width/2;
           let enemyCenterX = enemy.x+enemy.width/2;
           let enemyCenterY = enemy.y+enemy.width/2;
-          if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8464){
+          if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8400){
             collision = true ;
             trackLog("collision = true");
             cancelAnimationFrame(myReq);
