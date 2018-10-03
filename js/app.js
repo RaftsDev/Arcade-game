@@ -16,7 +16,7 @@ var Enemy = function(x,y,speed) {
 var grassBorder = 408;
 var waterBorder = 83;
 var leftBorder = 0;
-var rightBorder = 606;
+var rightBorder = 505;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -63,11 +63,11 @@ var Player = function(){
                 }
            break;
       case "left":if (this.x>leftBorder){
-                   this.x-=75;
+                   this.x-=101;
                 }
             break;
-      case "right":if (this.x<rightBorder-200){
-                    this.x+=75;
+      case "right":if (this.x<rightBorder-105){
+                    this.x+=101;
                 }
            break;
     }
