@@ -55,7 +55,8 @@ var Engine = (function(global) {
            render();
            setTimeout(function(){
              trackLog("Entered to setTimeout");
-             alert("You won!!!");
+             alert("You winner!!!");
+             init();
            },700);
 
            return;
@@ -134,7 +135,7 @@ var Engine = (function(global) {
           let playerCenterY = player.y+player.width/2;
           let enemyCenterX = enemy.x+enemy.width/2;
           let enemyCenterY = enemy.y+enemy.width/2;
-          if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<8400){
+          if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<5000){
             collision = true ;
             trackLog("collision = true");
             cancelAnimationFrame(myReq);
