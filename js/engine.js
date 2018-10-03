@@ -26,10 +26,14 @@ var Engine = (function(global) {
         myReq,
         // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
+        var fieldEl = doc.getElementsByClassName("top-field")[0],
+        winNum=0;
+
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -48,14 +52,15 @@ var Engine = (function(global) {
          * our update function since it may be used for smooth animation.
          */
         update(dt);
-
-
         render();
+        fieldEl.innerHTML = "Wins: "+winNum;
          if (checkWinCase()){
            render();
            setTimeout(function(){
              trackLog("Entered to setTimeout");
+
              alert("You winner!!!");
+             winNum++;
              init();
            },700);
 
