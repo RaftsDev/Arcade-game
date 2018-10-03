@@ -51,8 +51,18 @@ var Engine = (function(global) {
 
 
         render();
-        checkCollisions()
-      
+         if (checkWinCase()){
+           render();
+           setTimeout(function(){
+             trackLog("Entered to setTimeout");
+             alert("You won!!!");
+           },700);
+
+           return;
+         };
+        checkCollisions();
+
+
         if (collision){
           render();
           collision=false;
@@ -133,6 +143,17 @@ var Engine = (function(global) {
           };
         });
       };
+    };
+
+    function checkWinCase(){
+      trackLog("Entered to CheckWinCase function");
+      if (player.y<70){
+        trackLog("win = true");
+        cancelAnimationFrame(myReq);
+        trackLog("canceled Animation");
+        return true;
+      }
+      else return false;
     };
 
 
