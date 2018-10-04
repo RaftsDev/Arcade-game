@@ -3,11 +3,40 @@ body {
     font-size: 3em;
 }
 
-.top-field{
-  /* position: absolute; */
-  border: solid 1px red;
-  top: 5%;
-  left:45%;
+.top-lane{
+  border: solid 1px black;
+  height: 65px;
   margin: 0% 0% -4% 0%;
-  padding: 0;
+}
+
+.top-field{
+  position: relative;
+  border: solid 1px red;
+  margin: auto;
+  width: 505px;
+  display: inline-block;
+  height: 100%;
+
+}
+
+.select-field{
+  border: solid 1px blue;
+  width: 31%;
+  display: inherit;
+  margin: inherit;
+
+}
+
+.score-field{
+  border: solid 1px black;
+  width: 31%;
+  display: inherit;
+  margin: inherit;
+}
+
+.gem-field{
+  border: solid 1px green;
+  width: 31%;
+  display: inherit;
+  margin: inherit;
 }

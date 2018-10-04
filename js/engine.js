@@ -26,7 +26,7 @@ var Engine = (function(global) {
         myReq,
         // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
-        var fieldEl = doc.getElementsByClassName("top-field")[0],
+        var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0;
 
 
