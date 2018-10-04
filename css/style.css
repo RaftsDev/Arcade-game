@@ -39,6 +39,16 @@ body {
   z-index: 1;
   background-color: #f1f1f1;
   border-radius: 5px;
+
+}
+
+.dropList div{
+  margin: 3% 3%;
+  border-radius: 3px;
+}
+.dropList div:hover{
+  background-color: #ccc;
+
 }
 
 .score-field{
