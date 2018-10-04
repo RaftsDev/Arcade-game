@@ -29,6 +29,9 @@ var Engine = (function(global) {
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0;
 
+        const selectEl = doc.getElementsByClassName("select-field")[0];
+        selectEl.addEventListener("click",selectPlayer);
+
 
     canvas.width = 505;
     canvas.height = 606;
@@ -235,6 +238,10 @@ var Engine = (function(global) {
         enemy2.x = 50; enemy2.y = 150;
         enemy3.x = 100; enemy3.y = 230;
         player.x = 200; player.y = 325;
+    }
+
+    function selectPlayer(){
+      alert("click");
     }
 
     /* Go ahead and load all of the images we know we're going to need to

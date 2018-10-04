@@ -29,6 +29,16 @@ body {
 
 .select-field{
   border: solid 1px blue;
+  position: relative;
+}
+
+.dropList{
+  /* display:none; */
+  position: absolute;
+  box-shadow: 0px 16px 16px 0px #111;
+  z-index: 1;
+  background-color: #f1f1f1;
+  border-radius: 5px;
 }
 
 .score-field{
