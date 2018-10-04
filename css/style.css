@@ -9,6 +9,7 @@ body {
   margin: 0% 0% -4% 0%;
 }
 
+
 .top-field{
   position: relative;
   border: solid 1px red;
@@ -19,24 +20,21 @@ body {
 
 }
 
-.select-field{
-  border: solid 1px blue;
+.three-fields{
   width: 31%;
   display: inherit;
   margin: inherit;
 
+}
+
+.select-field{
+  border: solid 1px blue;
 }
 
 .score-field{
   border: solid 1px black;
-  width: 31%;
-  display: inherit;
-  margin: inherit;
 }
 
 .gem-field{
   border: solid 1px green;
-  width: 31%;
-  display: inherit;
-  margin: inherit;
 }
