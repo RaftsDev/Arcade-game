@@ -29,8 +29,9 @@ var Engine = (function(global) {
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0;
 
-        const selectEl = doc.getElementsByClassName("select-field")[0];
-        selectEl.addEventListener("click",selectPlayer);
+        const selectFieldEl = doc.getElementsByClassName("select-field")[0];
+        const dropListEl = doc.getElementsByClassName("dropList")[0];
+        selectFieldEl.addEventListener("click",selectPlayer);
 
 
     canvas.width = 505;
@@ -240,8 +241,10 @@ var Engine = (function(global) {
         player.x = 200; player.y = 325;
     }
 
-    function selectPlayer(){
-      alert("click");
+    function selectPlayer(evt){
+      // alert (evt.target);
+      dropListEl.classList.toggle("show");
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -253,7 +256,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-princess-girl.png'
+        'images/char-princess-girl.png',
+        'images/char-pink-girl.png'
     ]);
     Resources.onReady(init);
 
