@@ -31,7 +31,8 @@ var Engine = (function(global) {
 
         const selectFieldEl = doc.getElementsByClassName("select-field")[0];
         const dropListEl = doc.getElementsByClassName("dropList")[0];
-        selectFieldEl.addEventListener("click",selectPlayer);
+        selectFieldEl.addEventListener("click",dropListDown);
+        dropListEl.addEventListener("click",selectPlayer)
 
 
     canvas.width = 505;
@@ -241,10 +242,13 @@ var Engine = (function(global) {
         player.x = 200; player.y = 325;
     }
 
-    function selectPlayer(evt){
-      // alert (evt.target);
+    function dropListDown(evt){
       dropListEl.classList.toggle("show");
 
+    }
+
+    function selectPlayer(evt){
+      alert (evt.target);
     }
 
     /* Go ahead and load all of the images we know we're going to need to
