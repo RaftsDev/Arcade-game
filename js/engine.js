@@ -212,7 +212,7 @@ var Engine = (function(global) {
         }
 
         if(!gemsCount){
-          ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,70,70);
+          ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,90,130);
 
         }
         renderEntities();
