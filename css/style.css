@@ -32,26 +32,30 @@ body {
   position: relative;
 }
 
-.dropList{
+select{
+  font-size: 0.5em;
+}
+
+/* .dropList{
   position: absolute;
   box-shadow: 0px 16px 16px 0px #111;
   z-index: 1;
   background-color: #f1f1f1;
   border-radius: 5px;
-}
+} */
 
 .show{
   display:none;
 }
 
-.dropList div{
+/* .dropList div{
   margin: 3% 3%;
   border-radius: 3px;
-}
-.dropList div:hover{
+} */
+/* .dropList div:hover{
   background-color: #ccc;
 
-}
+} */
 
 .score-field{
   border: solid 1px black;
