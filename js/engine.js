@@ -271,6 +271,7 @@ function dropListSelect(sel){
  let selectImage = sel.options[sel.selectedIndex].value;
  let path = "images/"+selectImage;
  player.sprite = path;
+ sel.blur();
 
 }
 
