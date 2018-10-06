@@ -29,6 +29,8 @@ var Engine = (function(global) {
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0;
 
+        const dropListEl = doc.getElementsByClassName("dropList")[0];
+
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -249,7 +251,11 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-princess-girl.png',
-        'images/char-pink-girl.png'
+        'images/char-pink-girl.png',
+        'images/char-horn-girl.png',
+        'images/char-cat-girl.png',
+        'images/char-boy.png'
+
     ]);
     Resources.onReady(init);
 
@@ -259,6 +265,14 @@ var Engine = (function(global) {
      */
     global.ctx = ctx;
 })(this);
+
+function dropListSelect(sel){
+  // alert(sel.options[sel.selectedIndex].value);
+ let selectImage = sel.options[sel.selectedIndex].value;
+ let path = "images/"+selectImage;
+ player.sprite = path;
+
+}
 
 function trackLog(s){
   let now1 = new Date();
