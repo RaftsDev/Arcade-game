@@ -252,7 +252,7 @@ var Engine = (function(global) {
     function positionGems(){
       gemsX = Math.floor(Math.random()*5)*101;
       gemsY = Math.floor(Math.random()*3+1)*83;
-      alert(gemsX+" "+gemsY);
+      // alert(gemsX+" "+gemsY);
     }
 
 
