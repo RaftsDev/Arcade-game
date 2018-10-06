@@ -28,7 +28,7 @@ var Engine = (function(global) {
         collision=false;
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0,
-        gemsCount=0,
+        gemsCount=1,
         gemsX=225,
         gemsY=220;
 
@@ -151,6 +151,9 @@ var Engine = (function(global) {
             trackLog("canceled Animation");
 
           };
+          if ((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000){
+            gemsCount = 0;
+          }
         });
       };
     };
@@ -211,7 +214,7 @@ var Engine = (function(global) {
             }
         }
 
-        if(!gemsCount){
+        if(gemsCount){
           ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,90,130);
 
         }
