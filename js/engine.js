@@ -29,12 +29,6 @@ var Engine = (function(global) {
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0;
 
-        const selectFieldEl = doc.getElementsByClassName("select-field")[0];
-        const dropListEl = doc.getElementsByClassName("dropList")[0];
-        selectFieldEl.addEventListener("click",dropListDown);
-        dropListEl.addEventListener("click",selectPlayer)
-
-
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -242,14 +236,8 @@ var Engine = (function(global) {
         player.x = 200; player.y = 325;
     }
 
-    function dropListDown(evt){
-      dropListEl.classList.toggle("show");
 
-    }
 
-    function selectPlayer(evt){
-      alert (evt.target);
-    }
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
