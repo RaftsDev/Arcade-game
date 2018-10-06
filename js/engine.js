@@ -27,7 +27,10 @@ var Engine = (function(global) {
         // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
         var fieldEl = doc.getElementsByClassName("score-field")[0],
-        winNum=0;
+        winNum=0,
+        gemsCount=0,
+        gemsX=225,
+        gemsY=220;
 
         const dropListEl = doc.getElementsByClassName("dropList")[0];
 
@@ -208,6 +211,10 @@ var Engine = (function(global) {
             }
         }
 
+        if(!gemsCount){
+          ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,70,70);
+
+        }
         renderEntities();
     }
 
@@ -236,6 +243,13 @@ var Engine = (function(global) {
         enemy2.x = 50; enemy2.y = 150;
         enemy3.x = 100; enemy3.y = 230;
         player.x = 200; player.y = 325;
+        positionGems();
+    }
+
+    function positionGems(){
+      gemsX = Math.floor(Math.random()*5)*101;
+      gemsY = Math.floor(Math.random()*3+1)*83;
+      alert(gemsX+" "+gemsY);
     }
 
 
@@ -254,7 +268,8 @@ var Engine = (function(global) {
         'images/char-pink-girl.png',
         'images/char-horn-girl.png',
         'images/char-cat-girl.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Gem-Blue.png'
 
     ]);
     Resources.onReady(init);
@@ -272,6 +287,8 @@ function dropListSelect(sel){
  let path = "images/"+selectImage;
  player.sprite = path;
  sel.blur();
+
+
 
 }
 
