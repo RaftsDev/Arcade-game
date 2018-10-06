@@ -27,13 +27,17 @@ var Engine = (function(global) {
         // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
         var fieldEl = doc.getElementsByClassName("score-field")[0],
-        winNum=0;
+        winNum=0,
+        collectedGems = 0;
+
+        var gemfieldEl = doc.getElementsByClassName("gem-field")[0];
 
         const dropListEl = doc.getElementsByClassName("dropList")[0];
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
 
 
     /* This function serves as the kickoff point for the game loop itself
@@ -54,7 +58,7 @@ var Engine = (function(global) {
          */
         update(dt);
         render();
-        fieldEl.innerHTML = "Wins: "+winNum;
+
          if (checkWinCase()){
            render();
            setTimeout(function(){
@@ -135,10 +139,17 @@ var Engine = (function(global) {
     function checkCollisions() {
       // trackLog("Entered to checkCollision");
       if (!collision){
+        let playerCenterX = player.x+player.width/2;
+        let playerCenterY = player.y+player.width/2;
+
+        if ((gemsCount)&&((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000)){
+          gemsCount = 0;
+          collectedGems++;
+          gemfieldEl.innerHTML = "Gems:"+collectedGems;
+        };
+
         allEnemies.forEach(function(enemy) {
           trackLog("Entered to forEach(function(enemy)");
-          let playerCenterX = player.x+player.width/2;
-          let playerCenterY = player.y+player.width/2;
           let enemyCenterX = enemy.x+enemy.width/2;
           let enemyCenterY = enemy.y+enemy.width/2;
           if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<5000){
@@ -148,9 +159,7 @@ var Engine = (function(global) {
             trackLog("canceled Animation");
 
           };
-          if ((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000){
-            gemsCount = 0;
-          }
+
         });
       };
     };
@@ -245,6 +254,8 @@ var Engine = (function(global) {
         player.x = 200; player.y = 325;
         gemsCount = 1;
         positionGems();
+        fieldEl.innerHTML = "Wins: "+winNum;
+        gemfieldEl.innerHTML = "Gems:"+collectedGems;
     }
 
     function positionGems(){
