@@ -27,10 +27,7 @@ var Engine = (function(global) {
         // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
         var fieldEl = doc.getElementsByClassName("score-field")[0],
-        winNum=0,
-        gemsCount=1,
-        gemsX=225,
-        gemsY=220;
+        winNum=0;
 
         const dropListEl = doc.getElementsByClassName("dropList")[0];
 
@@ -246,6 +243,7 @@ var Engine = (function(global) {
         enemy2.x = 50; enemy2.y = 150;
         enemy3.x = 100; enemy3.y = 230;
         player.x = 200; player.y = 325;
+        gemsCount = 1;
         positionGems();
     }
 
