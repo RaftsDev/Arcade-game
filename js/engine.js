@@ -145,8 +145,9 @@ var Engine = (function(global) {
         if ((gemsCount)&&((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000)){
           gemsCount = 0;
           collectedGems++;
-          // gemfieldEl.innerHTML = "Gems:"+collectedGems;
-          gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
+          gemfieldEl.innerHTML = collectedGems+" ";
+          var gemImage = gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
+          gemImage.width = 30;
         };
 
         allEnemies.forEach(function(enemy) {
@@ -222,7 +223,7 @@ var Engine = (function(global) {
         }
 
         if(gemsCount){
-          ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,90,130);
+          ctx.drawImage(Resources.get('images/Gem-Blue.png'),gemsX,gemsY,70,100);
 
         }
         renderEntities();
@@ -256,13 +257,14 @@ var Engine = (function(global) {
         gemsCount = 1;
         positionGems();
         fieldEl.innerHTML = "Wins: "+winNum;
-        // gemfieldEl.innerHTML = "Gems:"+collectedGems;
-        gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
+        gemfieldEl.innerHTML = collectedGems+" ";
+        var gemImage = gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
+        gemImage.width = 30;
     }
 
     function positionGems(){
-      gemsX = Math.floor(Math.random()*5)*101;
-      gemsY = Math.floor(Math.random()*3+1)*83;
+      gemsX = Math.floor(Math.random()*5)*101+20;
+      gemsY = Math.floor(Math.random()*3+1)*83+25;
       // alert(gemsX+" "+gemsY);
     }
 
