@@ -145,7 +145,8 @@ var Engine = (function(global) {
         if ((gemsCount)&&((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000)){
           gemsCount = 0;
           collectedGems++;
-          gemfieldEl.innerHTML = "Gems:"+collectedGems;
+          // gemfieldEl.innerHTML = "Gems:"+collectedGems;
+          gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
         };
 
         allEnemies.forEach(function(enemy) {
@@ -255,7 +256,8 @@ var Engine = (function(global) {
         gemsCount = 1;
         positionGems();
         fieldEl.innerHTML = "Wins: "+winNum;
-        gemfieldEl.innerHTML = "Gems:"+collectedGems;
+        // gemfieldEl.innerHTML = "Gems:"+collectedGems;
+        gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
     }
 
     function positionGems(){
