@@ -29,9 +29,7 @@ var Engine = (function(global) {
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0,
         collectedGems = 0;
-
         var gemfieldEl = doc.getElementsByClassName("gem-field")[0];
-
         const dropListEl = doc.getElementsByClassName("dropList")[0];
 
     canvas.width = 505;
@@ -62,13 +60,10 @@ var Engine = (function(global) {
          if (checkWinCase()){
            render();
            setTimeout(function(){
-             trackLog("Entered to setTimeout");
-
              alert("You winner!!!");
              winNum++;
              init();
            },700);
-
            return;
          };
         checkCollisions();
@@ -80,7 +75,6 @@ var Engine = (function(global) {
           setTimeout(function(){
             trackLog("Entered to setTimeout");
             alert("You lose!!!");
-            // init();
             init();
           },700);
           return;
@@ -119,7 +113,6 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -137,11 +130,9 @@ var Engine = (function(global) {
     }
 
     function checkCollisions() {
-      // trackLog("Entered to checkCollision");
       if (!collision){
         let playerCenterX = player.x+player.width/2;
         let playerCenterY = player.y+player.width/2;
-
         if ((gemsCount)&&((Math.pow(playerCenterX-gemsX,2)+Math.pow(playerCenterY-gemsY,2))<5000)){
           gemsCount = 0;
           collectedGems++;
@@ -159,9 +150,7 @@ var Engine = (function(global) {
             trackLog("collision = true");
             cancelAnimationFrame(myReq);
             trackLog("canceled Animation");
-
           };
-
         });
       };
     };
@@ -265,7 +254,6 @@ var Engine = (function(global) {
     function positionGems(){
       gemsX = Math.floor(Math.random()*5)*101+20;
       gemsY = Math.floor(Math.random()*3+1)*83+25;
-      // alert(gemsX+" "+gemsY);
     }
 
 
@@ -298,7 +286,6 @@ var Engine = (function(global) {
 })(this);
 
 function dropListSelect(sel){
-  // alert(sel.options[sel.selectedIndex].value);
  let selectImage = sel.options[sel.selectedIndex].value;
  let path = "images/"+selectImage;
  player.sprite = path;

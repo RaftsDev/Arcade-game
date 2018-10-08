@@ -50,10 +50,6 @@ var Player = function(){
   this.sprite = 'images/char-princess-girl.png';
   this.handleInput = function(key){
     switch(key){
-      // case "up":if (this.y>waterBorder){
-      //              this.y-=83;
-      //           }
-      //      break;
       case "up":
                    this.y-=83;
 

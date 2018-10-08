@@ -4,7 +4,6 @@ body {
 }
 
 .top-lane{
-  border: solid 1px black;
   height: 65px;
   margin: 0% 0% -4% 0%;
 }
@@ -12,7 +11,6 @@ body {
 
 .top-field{
   position: relative;
-  border: solid 1px red;
   margin: auto;
   width: 505px;
   display: inline-block;
@@ -28,7 +26,6 @@ body {
 }
 
 .select-field{
-  border: solid 1px blue;
   position: relative;
 }
 
@@ -37,31 +34,16 @@ select{
   border-radius: 3px;
 }
 
-/* .dropList{
-  position: absolute;
-  box-shadow: 0px 16px 16px 0px #111;
-  z-index: 1;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-} */
-
 .show{
   display:none;
 }
 
-/* .dropList div{
-  margin: 3% 3%;
-  border-radius: 3px;
-} */
-/* .dropList div:hover{
-  background-color: #ccc;
-
-} */
-
-.score-field{
+/* .three-fields.score-field{
   border: solid 1px black;
-}
+} */
 
 .gem-field{
-  border: solid 1px green;
+  width:20%;
+  position: relative;
+  left: 5%;
 }
