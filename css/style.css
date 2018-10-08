@@ -15,35 +15,34 @@ body {
   width: 505px;
   display: inline-block;
   height: 100%;
+  float:clear;
 
 }
 
 .three-fields{
-  width: 31%;
   display: inherit;
-  margin: inherit;
-
+  font-size: 1em;
 }
 
 .select-field{
   position: relative;
+  float: left;
 }
 
 select{
-  font-size: 0.5em;
   border-radius: 3px;
+  font-size: 0.5em;
 }
 
 .show{
   display:none;
 }
 
-/* .three-fields.score-field{
-  border: solid 1px black;
-} */
+.score-field{
+  margin:0 auto;
+  float: clear;
+}
 
 .gem-field{
-  width:20%;
-  position: relative;
-  left: 5%;
+float: right;
 }
