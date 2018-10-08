@@ -142,25 +142,19 @@ var Engine = (function(global) {
         };
 
         allEnemies.forEach(function(enemy) {
-          trackLog("Entered to forEach(function(enemy)");
           let enemyCenterX = enemy.x+enemy.width/2;
           let enemyCenterY = enemy.y+enemy.width/2;
           if ((Math.pow(playerCenterX-enemyCenterX,2)+Math.pow(playerCenterY-enemyCenterY,2))<5000){
             collision = true ;
-            trackLog("collision = true");
             cancelAnimationFrame(myReq);
-            trackLog("canceled Animation");
           };
         });
       };
     };
 
     function checkWinCase(){
-      trackLog("Entered to CheckWinCase function");
       if (player.y<70){
-        trackLog("win = true");
         cancelAnimationFrame(myReq);
-        trackLog("canceled Animation");
         return true;
       }
       else return false;
