@@ -24,7 +24,6 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
         myReq,
-        // cancelAnimationFrame = window.cancelAnimationFrame,
         collision=false;
         var fieldEl = doc.getElementsByClassName("score-field")[0],
         winNum=0,
@@ -231,12 +230,10 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
         enemy1.x = -150; enemy1.y = 75;
         enemy2.x = -100; enemy2.y = 150;
         enemy3.x = -200; enemy3.y = 230;
         player.x = 200; player.y = 325;
-        // var gem = new Gem();
         gem.reposition();
         gem.collected = false;
         fieldEl.innerHTML = "Wins: "+winNum;
