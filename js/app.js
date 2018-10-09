@@ -13,6 +13,17 @@ var Enemy = function(x,y,speed) {
     this.height = 83;
 };
 
+var Gem = function() {
+  this.sprite = 'images/Gem-Blue.png';
+  this.x = Math.floor(Math.random()*5)*101+20;
+  this.y = Math.floor(Math.random()*3+1)*83+25;
+  collected = false;
+  this.reposition = function() {
+    this.x = Math.floor(Math.random()*5)*101+20;
+    this.y = Math.floor(Math.random()*3+1)*83+25;
+  };
+};
+
 var grassBorder = 408;
 var waterBorder = 83;
 var leftBorder = 0;
@@ -36,7 +47,9 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
+Gem.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite),this.x,this.y,70,100);
+};
 // Now write your own player class
 // This class requires an update(), render() andchar-princess-girl
 // a handleInput() method.
@@ -89,6 +102,7 @@ var enemy3 = new Enemy(100,230,100);
 var allEnemies = [enemy1,enemy2,enemy3];
 
 var player = new Player();
+var gem = new Gem();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
