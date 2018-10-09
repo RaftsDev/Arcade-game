@@ -233,9 +233,9 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
-        enemy1.x = 0; enemy1.y = 75;
-        enemy2.x = 50; enemy2.y = 150;
-        enemy3.x = 100; enemy3.y = 230;
+        enemy1.x = -150; enemy1.y = 75;
+        enemy2.x = -100; enemy2.y = 150;
+        enemy3.x = -200; enemy3.y = 230;
         player.x = 200; player.y = 325;
         gemsCount = 1;
         positionGems();
@@ -284,9 +284,6 @@ function dropListSelect(sel){
  let path = "images/"+selectImage;
  player.sprite = path;
  sel.blur();
-
-
-
 }
 
 function trackLog(s){
