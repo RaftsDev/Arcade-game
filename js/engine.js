@@ -23,13 +23,13 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        myReq,
-        collision=false;
+        myReq, // variable neccessary for stop animation
+        collision=false; // variable for state of collision between player and enemies, player and gem
         var fieldEl = doc.getElementsByClassName("score-field")[0],
-        winNum=0,
-        collectedGems = 0;
-        var gemfieldEl = doc.getElementsByClassName("gem-field")[0];
-        const dropListEl = doc.getElementsByClassName("dropList")[0];
+        winNum=0,// Number of wins
+        collectedGems = 0; // Number of collected gems
+        var gemfieldEl = doc.getElementsByClassName("gem-field")[0]; // display the number of collected gems
+        const dropListEl = doc.getElementsByClassName("dropList")[0]; // for drop list element
 
     canvas.width = 505;
     canvas.height = 606;
@@ -56,6 +56,8 @@ var Engine = (function(global) {
         update(dt);
         render();
 
+        // Checking condition win case
+
          if (checkWinCase()){
            render();
            setTimeout(function(){
@@ -65,9 +67,9 @@ var Engine = (function(global) {
            },700);
            return;
          };
+
+         // checking collision case
         checkCollisions();
-
-
         if (collision){
           render();
           collision=false;
@@ -128,18 +130,22 @@ var Engine = (function(global) {
         player.update();
     }
 
+   // function for checking collisions between player and enemies, player and gems
     function checkCollisions() {
       if (!collision){
-        let playerCenterX = player.x+player.width/2;
+        let playerCenterX = player.x+player.width/2; //coordinate of player
         let playerCenterY = player.y+player.width/2;
+        //measure distance between player and gem
         if ((!gem.collected)&&((Math.pow(playerCenterX-gem.x,2)+Math.pow(playerCenterY-gem.y,2))<5000)){
           gem.collected = true;
+          //increase count of grabbed gems
           collectedGems++;
           gemfieldEl.innerHTML = collectedGems+" ";
           var gemImage = gemfieldEl.appendChild(Resources.get('images/Gem-Blue.png'));
           gemImage.width = 30;
         };
 
+        //measure distance between player and enemies
         allEnemies.forEach(function(enemy) {
           let enemyCenterX = enemy.x+enemy.width/2;
           let enemyCenterY = enemy.y+enemy.width/2;
@@ -151,7 +157,9 @@ var Engine = (function(global) {
       };
     };
 
+//function for checking win events
     function checkWinCase(){
+      //condition of reach player a water
       if (player.y<70){
         cancelAnimationFrame(myReq);
         return true;
@@ -270,6 +278,7 @@ var Engine = (function(global) {
     global.ctx = ctx;
 })(this);
 
+// function implement select player image
 function dropListSelect(sel){
  let selectImage = sel.options[sel.selectedIndex].value;
  let path = "images/"+selectImage;

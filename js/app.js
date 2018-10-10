@@ -14,16 +14,22 @@ var Enemy = function(x,y,speed) {
 };
 
 var Gem = function() {
+
+  // get image and random position for first invoke code
   this.sprite = 'images/Gem-Blue.png';
   this.x = Math.floor(Math.random()*5)*101+20;
   this.y = Math.floor(Math.random()*3+1)*83+25;
+
+// parameter that show state of gem - grabbed or not by player
   collected = false;
+  //method for obtain new random location for new gem in field
   this.reposition = function() {
     this.x = Math.floor(Math.random()*5)*101+20;
     this.y = Math.floor(Math.random()*3+1)*83+25;
   };
 };
 
+//boundry of field to restrict move for player
 var grassBorder = 408;
 var waterBorder = 83;
 var leftBorder = 0;
@@ -47,6 +53,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+//Draw gem in field
 Gem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite),this.x,this.y,70,100);
 };
@@ -62,6 +69,7 @@ var Player = function(){
   this.height = 83;
   this.sprite = 'images/char-princess-girl.png';
   this.handleInput = function(key){
+    // action events pressed keyboards keys
     switch(key){
       case "up":
                    this.y-=83;
@@ -102,6 +110,8 @@ var enemy3 = new Enemy(100,230,100);
 var allEnemies = [enemy1,enemy2,enemy3];
 
 var player = new Player();
+
+//Instantiate gem object
 var gem = new Gem();
 
 // This listens for key presses and sends the keys to your
