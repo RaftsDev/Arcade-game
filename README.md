@@ -13,8 +13,13 @@
 
 Source code in advanced-version branch of [GitHub.com](https://github.com/kubr2017/Arcade-game)
 
+For play game suppose to download repository and launch file index.html.
+Game compatibility with Chrome and Mozila firefox browser.
+
 
 ## Instructions
+
+For move player use :arrow_left:, :arrow_right:, :arrow_down:, :arrow_up: keys on keyboard.
 
 ### Files and folders
 
@@ -31,39 +36,14 @@ The code consist in 3 folders:
 
   Code use module pattern.
 
-  Main code locate in `engine.js`. Code in this file 
+  Main code locate in `engine.js`. Code in this file start animation, get images from `resources.js` file, contains collision (between player and enemies) and win algoritms.
 
-  Code locate in `app.js` file in **js** folder.
+  Code locate in `app.js` define classes and objects (enemies, player etc.).
   Code in `resources.js` load images to cash and return for code in `engine.js`.
-  When you start runing the function `createDeck()` to create html code of cards.
-
-  `createDeck()` function use function `createCardsArray()` which build Array with elements. Each element - one card.
-
-  After built array start shuffle through function  `shuffle()`.
-
-  When shuffle complete array element will push to **html** code.
-
-  All clicked cards  is flip over by adding a **css** classes `"show"` and `"open"`.
-  Matching cards get **css** class `"match"`.
-
-  Work with flip over  cards realized through `flipOver()` function and Map collection `flipMap`.
 
 ## Rules
 
-In the same time its possible to open just two cards.
-
-Each card stands in open position just 3 seconds.
-
-If you had case with clicked the card that you already opened before - you lose stars.
-
-The game finish when all cards is matched. And then popup message with your results regards your stars rate:
-
-- No stars - very bad
-- :star: - bad
-- :star::star: - good
-- :star::star::star: - very good
-
-To restart game click restart button :repeat:.
+Player have to reach water in top by avoiding bugs :beetle: and collect gems :gem:
 
 
 ## Contributing
